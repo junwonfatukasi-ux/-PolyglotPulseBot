@@ -1,0 +1,11 @@
+aiogram>=3.20.0
+fastapi>=0.115.12
+uvicorn>=0.30.0
+gunicorn>=21.2.0
+transformers>=4.52.4
+torch>=2.5.1
+langdetect>=1.0.9
+lingua-language-detector>=2.1.1
+python-dotenv>=1.0.1
+babel>=2.16.0
+pytest>=8.3.0
