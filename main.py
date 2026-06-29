@@ -1,10 +1,15 @@
 import logging
+import sys
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from aiogram.types import Update
 from bot import bot, dp
-from core.config import config
-from core.webhook import set_webhook
+from config import config
+from webhook import set_webhook
+
+# Add the current directory to path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +53,8 @@ async def readiness_check() -> dict:
     """Readiness check endpoint."""
     return {"status": "ready", "bot": "@PolyglotPulseBot"}
 
+# The app variable is what Gunicorn looks for
+# This must be at the top level
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
